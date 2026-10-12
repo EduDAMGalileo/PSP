@@ -1,0 +1,5 @@
+package repaso;
+
+public record PuntoRecord(int x, int y) {
+	
+}
