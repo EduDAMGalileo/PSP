@@ -33,7 +33,7 @@ public class EjemploDirectorioYEntorno {
             pb = new ProcessBuilder("sh", "-c", "echo Variable=[$MI_MODO] en carpeta: $(pwd)");
         }
 
-        // 1. MANIPULAR EL ENTORNO (Map<String, String>)
+        // MANIPULAR EL ENTORNO (Map<String, String>)
         Map<String, String> entorno = pb.environment();
 
         // Consulta segura: en Windows suele llamarse "Path" y en Linux "PATH"
@@ -44,6 +44,7 @@ public class EjemploDirectorioYEntorno {
         }
 
         if (pathHeredado != null) {
+        	//Limitamos como mucho a 35, que el path puede ser muy largo
             int longitud = Math.min(35, pathHeredado.length());
             System.out.println("Path del sistema (resumen): " + pathHeredado.substring(0, longitud) + "...");
         }
