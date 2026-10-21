@@ -16,6 +16,8 @@ public class RedireccionFicheros {
         // PREPARACIÓN: Creamos el fichero de entrada con datos de prueba
         // =====================================================================
         File entrada = new File("datos.txt");
+
+        //Escribimos 3 líneas de golpe
         Files.writeString(entrada.toPath(), "Zanahoria\nManzana\nPlatano\n", StandardCharsets.UTF_8);
 
         File log = new File("registro.log");
@@ -23,6 +25,7 @@ public class RedireccionFicheros {
 
         // En Linux usamos 'wc -l' 
         // En Windows usamos 'sort' (comando nativo que lee de entrada y saca por salida)
+        // No ejecutamos aun nada, para eso hay que hacer start()
         ProcessBuilder pb;
         if (esWindows) {
             pb = new ProcessBuilder("sort");
@@ -32,7 +35,7 @@ public class RedireccionFicheros {
 
 
         // =====================================================================
-        // 1. REDIRECCIÓN BÁSICA: < datos.txt  > registro.log  2> errores.log
+        // REDIRECCIÓN BÁSICA: < datos.txt  > registro.log  2> errores.log
         // =====================================================================
         System.out.println("=== 1. Ejecutando con redirección a ficheros ===");
 
@@ -48,7 +51,7 @@ public class RedireccionFicheros {
 
 
         // =====================================================================
-        // 2. AÑADIR AL FINAL (APPEND): >> registro.log
+        // AÑADIR AL FINAL (APPEND): >> registro.log
         // =====================================================================
         System.out.println("=== 2. Segunda ejecución añadiendo al final (appendTo) ===");
 
@@ -63,7 +66,7 @@ public class RedireccionFicheros {
 
 
         // =====================================================================
-        // 3. DESCARTAR ERRORES: 2> /dev/null (Linux) o 2> NUL (Windows)
+        // DESCARTAR ERRORES: 2> /dev/null (Linux) o 2> NUL (Windows)
         // =====================================================================
         System.out.println("=== 3. Descartando la salida de errores (DISCARD) ===");
 
