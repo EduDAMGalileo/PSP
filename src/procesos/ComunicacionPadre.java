@@ -20,7 +20,8 @@ public class ComunicacionPadre {
             Process p = pb.start();
             System.out.println("PADRE: El hijo está corriendo en tu consola. Escribe algo (escribe SALIR para terminar):");
             
-            p.waitFor(); // Espera a que el usuario termine en la consola
+            // Espera a que el usuario termine en la consola
+            p.waitFor(); 
             System.out.println("PADRE: El proceso hijo por inheritIO ha terminado.\n");
             
         } catch (Exception e) {

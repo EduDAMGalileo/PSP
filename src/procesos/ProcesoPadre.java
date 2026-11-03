@@ -15,7 +15,7 @@ public class ProcesoPadre {
 
             // --- ESCRIBIR AL HIJO Y CERRAR EL FLUJO ---
             // Usamos un try-with-resources solo para la escritura. 
-            // Al salir de este bloque, 'aHijo' se cierra automáticamente (nuestro Ctrl+D).
+            // Al salir de este bloque, 'aHijo' se cierra automáticamente.
             try (BufferedWriter aHijo = p.outputWriter(StandardCharsets.UTF_8)) {
                 System.out.println("PADRE: Enviando datos al hijo...");
                 aHijo.write("Hola hijo, aquí van datos con tildes: canción, lápiz.\n");
@@ -44,7 +44,7 @@ public class ProcesoPadre {
                 }
             }
 
-            // 2. Esperar a que el proceso hijo termine por completo y recoger el código de salida
+            // Esperar a que el proceso hijo termine por completo y recoger el código de salida
             int codigoSalida = p.waitFor();
             System.out.println("\nPADRE: El proceso hijo ha terminado con el código: " + codigoSalida);
 
