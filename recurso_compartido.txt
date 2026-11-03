@@ -1,0 +1,1 @@
+Datos críticos escritos por el proceso principal.
